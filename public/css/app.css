@@ -550,6 +550,99 @@ select.form-control,
     padding-left: 2.4rem;
 }
 
+/* لیست بازشوی selectهای بومی؛ در تم تیره خوانا بمانند */
+select option,
+select optgroup {
+    background-color: var(--color-surface-2);
+    color: var(--color-text);
+}
+
+/* ============ Choices.js (کمبوباکس جستجو‌دار) — تم تیره ============ */
+.choices {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    font-family: inherit;
+}
+
+.choices__inner {
+    min-height: 44px;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background-color: rgba(15, 23, 42, 0.9);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+}
+
+.choices.is-focused .choices__inner,
+.choices.is-open .choices__inner {
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.choices__list--single {
+    padding: 0;
+}
+
+.choices__list--single .choices__item {
+    color: var(--color-text);
+}
+
+.choices__placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+}
+
+.choices__input,
+.choices__input--cloned {
+    background-color: transparent;
+    color: var(--color-text);
+    font-family: inherit;
+}
+
+/* فلش کشو */
+.choices[data-type*="select-one"]::after {
+    border-color: var(--color-text-soft) transparent transparent transparent;
+}
+
+/* لیست بازشو */
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+    background-color: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    z-index: 20;
+}
+
+.choices__list--dropdown .choices__item,
+.choices__list[aria-expanded] .choices__item {
+    color: var(--color-text);
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted,
+.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background-color: rgba(16, 185, 129, 0.18);
+}
+
+.choices__list--dropdown .choices__item--disabled,
+.choices__list[aria-expanded] .choices__item--disabled {
+    color: var(--color-text-muted);
+}
+
+.choices__list--dropdown .choices__input,
+.choices__list[aria-expanded] .choices__input {
+    background-color: var(--color-surface-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.choices__heading {
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+}
+
 /* مودال */
 .modal {
     display: none;

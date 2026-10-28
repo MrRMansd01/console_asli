@@ -20,7 +20,6 @@ const NAV_GROUPS = [
   {
     title: 'آموزش',
     items: [
-      { href: 'my-exams.html', icon: 'fa-file-lines', label: 'آزمون‌های من', roles: 'student,teacher,admin,super_admin' },
       { href: 'tasks.html', icon: 'fa-list-check', label: 'تکالیف / وظایف', roles: 'student,teacher,admin,super_admin' },
       { href: 'online-classes.html', icon: 'fa-calendar-days', label: 'برنامه هفتگی / کلاس‌های آنلاین', roles: 'student,teacher,admin,super_admin' },
       { href: 'classes.html', icon: 'fa-chalkboard-teacher', label: 'کلاس‌ها', roles: 'teacher,admin,super_admin' },
@@ -29,9 +28,7 @@ const NAV_GROUPS = [
   {
     title: 'آزمون‌ها',
     items: [
-      { href: 'create-exam.html', icon: 'fa-file-pen', label: 'طراحی آزمون', roles: 'teacher,admin,super_admin' },
       { href: 'exams.html', icon: 'fa-folder-open', label: 'مدیریت آزمون‌ها', roles: 'teacher,admin,super_admin' },
-      { href: 'take-exam.html', icon: 'fa-pencil', label: 'شرکت در آزمون', roles: 'student,admin,super_admin' },
     ],
   },
   {
