@@ -1,0 +1,10 @@
+# وابستگی‌ها
+node_modules/
+
+# متغیرهای محیطی (کلیدها را کامیت نکنید)
+.env
+.env.local
+.env.*.local
+
+# لاگ‌ها
+npm-debug.log*
