@@ -5,46 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدیریت مدارس</title>
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/subjects.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .add-user-section { border: 1px solid #e0e0e0; padding: 1rem; border-radius: 8px; background-color: #f9f9f9; }
+        .add-user-section { border: 1px solid var(--color-border); padding: 1rem; border-radius: var(--radius-sm); background-color: var(--color-surface-2); }
         .table-wrapper { max-height: 250px; overflow-y: auto; }
-        textarea { width: 100%; padding: 0.5rem; font-family: 'Vazirmatn', sans-serif; border: 1px solid #ccc; border-radius: 6px; }
+        textarea { width: 100%; padding: 0.5rem; font-family: 'Vazirmatn', sans-serif; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); background-color: rgba(15, 23, 42, 0.9); color: var(--color-text); }
     </style>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <div class="page-container">
-        <header class="page-header">
-            <h1>مدیریت مدارس (مدیران)</h1>
-            <a href="/home.html" class="back-to-dashboard-btn">
-                <i class="fas fa-arrow-left"></i> بازگشت به داشبورد
-            </a>
-        </header>
+    <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="منو">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="app-layout" class="app-layout">
+        <aside id="app-sidebar" class="sidebar-shell"></aside>
+        <main class="page-shell">
+            <div class="page-shell-inner">
+                <header class="page-header">
+                    <h1 class="page-title">مدیریت مدارس (مدیران)</h1>
+                    <div class="page-header-actions">
+                        <button id="add-admin-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> افزودن مدیر و مدرسه جدید
+                        </button>
+                    </div>
+                </header>
 
-        <main class="content-main">
-            <div class="toolbar">
-                <button id="add-admin-btn" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> افزودن مدیر و مدرسه جدید
-                </button>
-            </div>
-            <div class="table-container">
-                <table id="schools-table">
-                    <thead>
-                        <tr>
-                            <th>نام مدیر</th>
-                            <th>ایمیل</th>
-                            <th>نام مدرسه</th>
-                            <th>محدودیت دانش‌آموز</th>
-                            <th>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Admin rows will be dynamically inserted here -->
-                    </tbody>
-                </table>
-                <p id="loading-message">در حال بارگذاری لیست مدیران...</p>
+                <section class="panel">
+                    <div class="table-container">
+                        <table id="schools-table">
+                            <thead>
+                                <tr>
+                                    <th>نام مدیر</th>
+                                    <th>ایمیل</th>
+                                    <th>نام مدرسه</th>
+                                    <th>محدودیت دانش‌آموز</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Admin rows will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                        <p id="loading-message">در حال بارگذاری لیست مدیران...</p>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
@@ -181,6 +186,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth-check.js"></script>
     <script src="js/schools.js"></script>
 </body>
 </html>

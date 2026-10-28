@@ -1,6 +1,7 @@
-/* Styles for the profile page */
+/* استایل‌های صفحه پروفایل — تم تیره */
+
 #profile-form {
-    display: none; /* Hidden until data is loaded */
+    display: none; /* تا زمان بارگذاری داده پنهان است */
 }
 
 .profile-summary-grid {
@@ -10,36 +11,36 @@
 }
 
 .summary-item {
-    background-color: #f9f9f9;
+    background-color: var(--color-surface-2);
     padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
 }
 
 .summary-item label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #555;
+    color: var(--color-text-soft);
     font-size: 0.9rem;
 }
 
 .summary-input {
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid transparent; /* Transparent border for readonly mode */
-    border-radius: 6px;
+    border: 1px solid transparent; /* حاشیه شفاف در حالت فقط‌خواندنی */
+    border-radius: var(--radius-sm);
     font-size: 1.1rem;
     font-weight: 600;
     background-color: transparent;
-    color: var(--text-color);
+    color: var(--color-text);
     transition: border-color 0.3s, background-color 0.3s;
 }
 
-/* Style for when inputs are editable */
+/* حالت قابل ویرایش */
 .summary-input.editable {
-    border-color: var(--border-color);
-    background-color: #fff;
+    border-color: var(--color-border-strong);
+    background-color: rgba(15, 23, 42, 0.9);
 }
 
 .form-actions {

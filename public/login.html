@@ -6,20 +6,25 @@
     <title>ورود به کنسول پایه</title>
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #009688;
-            --primary-light: #4DB6AC;
-            --primary-dark: #00796B;
-            --accent-color: #FF5722;
-            --text-color: #333;
-            --text-light: #757575;
-            --bg-color: #f5f5f5;
-            --card-bg: #fff;
-            --border-color: #e0e0e0;
-            --success-color: #4CAF50;
-            --warning-color: #FFC107;
-            --danger-color: #F44336;
+            --color-bg: #0f172a;
+            --color-surface: #111827;
+            --color-border: rgba(148, 163, 184, 0.28);
+            --color-border-strong: rgba(148, 163, 184, 0.45);
+            --color-text: #e5e7eb;
+            --color-text-soft: #9ca3af;
+            --color-text-muted: #64748b;
+            --color-primary: #10b981;
+            --color-primary-strong: #059669;
+            --color-success: #22c55e;
+            --color-danger: #f87171;
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --shadow-soft: 0 10px 40px rgba(2, 6, 23, 0.55);
             --transition-speed: 0.3s;
         }
 
@@ -30,23 +35,11 @@
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        @font-face {
-            font-family: 'Vazirmatn';
-            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/Vazirmatn-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Vazirmatn';
-            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/Vazirmatn-Bold.woff2') format('woff2');
-            font-weight: bold;
-            font-style: normal;
-        }
-
         body {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-            color: var(--text-color);
+            background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.16), transparent 55%),
+                var(--color-bg);
+            color: var(--color-text);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -57,9 +50,10 @@
         .login-container {
             width: 90%;
             max-width: 480px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
             padding: 2.5rem;
             text-align: center;
             position: relative;
@@ -71,7 +65,7 @@
         }
 
         .login-logo {
-            color: var(--primary-color);
+            color: var(--color-primary);
             font-size: 2.2rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
@@ -87,14 +81,14 @@
             transform: translateX(-50%);
             width: 50px;
             height: 3px;
-            background-color: var(--primary-light);
+            background-color: var(--color-primary);
             border-radius: 3px;
         }
 
         .login-tabs {
             display: flex;
             margin-bottom: 2rem;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--color-border);
         }
 
         .tab {
@@ -104,10 +98,11 @@
             position: relative;
             transition: var(--transition-speed);
             font-weight: 500;
+            color: var(--color-text-soft);
         }
 
         .tab.active {
-            color: var(--primary-color);
+            color: var(--color-primary);
             font-weight: bold;
         }
 
@@ -118,7 +113,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--primary-color);
+            background-color: var(--color-primary);
         }
 
         .form-group {
@@ -131,32 +126,37 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--text-light);
+            color: var(--color-text-soft);
             transition: var(--transition-speed);
         }
 
         .form-control {
             width: 100%;
             padding: 1rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--color-border-strong);
             border-radius: 12px;
             font-size: 1rem;
             transition: var(--transition-speed);
-            background-color: #f9f9f9;
+            background-color: rgba(15, 23, 42, 0.9);
+            color: var(--color-text);
+        }
+
+        .form-control::placeholder {
+            color: var(--color-text-muted);
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
+            border-color: rgba(34, 197, 94, 0.7);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.1);
-            background-color: #fff;
+            box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+            background-color: rgba(15, 23, 42, 0.9);
         }
 
         .auth-btn {
             width: 100%;
             padding: 1.1rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
-            color: white;
+            background: linear-gradient(120deg, #22c55e, #0f766e);
+            color: #ffffff;
             border: none;
             border-radius: 12px;
             font-size: 1.1rem;
@@ -164,12 +164,12 @@
             cursor: pointer;
             transition: var(--transition-speed);
             margin-top: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0, 150, 136, 0.2);
+            box-shadow: var(--shadow-soft);
         }
 
         .auth-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 150, 136, 0.3);
+            box-shadow: 0 6px 15px rgba(2, 6, 23, 0.6);
         }
 
         .auth-btn:active {
@@ -178,12 +178,12 @@
 
         .login-footer {
             margin-top: 2rem;
-            color: var(--text-light);
+            color: var(--color-text-muted);
             font-size: 0.9rem;
         }
 
         .forgot-password {
-            color: var(--primary-color);
+            color: var(--color-primary);
             text-decoration: none;
             margin-top: 1rem;
             display: inline-block;
@@ -192,7 +192,7 @@
         }
 
         .forgot-password:hover {
-            color: var(--primary-dark);
+            color: var(--color-primary-strong);
             text-decoration: underline;
         }
 
@@ -202,28 +202,28 @@
             border-radius: 8px;
             display: none;
         }
-        
+
         .message {
             padding: 15px;
             border-radius: 12px;
             margin-bottom: 15px;
             text-align: center;
             font-weight: 500;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(2, 6, 23, 0.35);
             position: relative;
             padding-right: 35px;
         }
 
         .message.error {
-            background-color: #ffebee;
-            color: #d32f2f;
-            border-left: 4px solid #f44336;
+            background-color: rgba(248, 113, 113, 0.12);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: #fecaca;
         }
 
         .message.success {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border-left: 4px solid #4caf50;
+            background-color: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #bbf7d0;
         }
 
         .message::before {
@@ -243,13 +243,13 @@
         }
 
         .message.error::before {
-            background-color: #f44336;
-            color: white;
+            background-color: rgba(248, 113, 113, 0.9);
+            color: #ffffff;
         }
 
         .message.success::before {
-            background-color: #4caf50;
-            color: white;
+            background-color: rgba(34, 197, 94, 0.9);
+            color: #ffffff;
             content: '✓';
         }
 
@@ -279,15 +279,15 @@
                 padding: 2rem 1.5rem;
                 width: 95%;
             }
-            
+
             .login-logo {
                 font-size: 1.8rem;
             }
-            
+
             .form-control {
                 padding: 0.9rem;
             }
-            
+
             .auth-btn {
                 padding: 1rem;
             }

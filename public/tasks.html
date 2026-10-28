@@ -5,52 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدیریت وظایف - کنسول پایه</title>
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/subjects.css">
     <link rel="stylesheet" href="css/tasks.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <div class="page-container">
-        <header class="page-header">
-            <h1>مدیریت وظایف</h1>
-            <a href="/home.html" class="back-to-dashboard-btn">
-                <i class="fas fa-arrow-left"></i> بازگشت به داشبورد
-            </a>
-        </header>
+    <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="منو">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="app-layout" class="app-layout">
+        <aside id="app-sidebar" class="sidebar-shell"></aside>
+        <main class="page-shell">
+            <div class="page-shell-inner">
+                <header class="page-header">
+                    <h1 class="page-title">مدیریت وظایف</h1>
+                    <div class="page-header-actions">
+                        <button class="btn btn-primary" id="open-task-modal-btn"><i class="fas fa-plus"></i> افزودن تسک</button>
+                        <button class="btn btn-primary" id="generate-report-btn"><i class="fas fa-chart-line"></i> گزارش کار</button>
+                    </div>
+                </header>
 
-        <main class="content-main">
-            <section class="user-management-section">
-                <div class="user-info">
-                    <h3 id="username">کاربر</h3>
-                    <button id="logout-btn" class="btn btn-secondary">خروج</button>
-                </div>
-                <!-- Class filter dropdown -->
-                <div class="form-group">
-                    <label for="class-filter">فیلتر بر اساس کلاس:</label>
-                    <select id="class-filter">
-                        <option value="all">همه کلاس‌ها</option>
-                        <!-- Classes will be dynamically loaded here -->
-                    </select>
-                </div>
-                <div class="users-list">
-                    <ul id="users-container">
-                        <li class="loading-users">در حال بارگذاری کاربران...</li>
-                    </ul>
-                </div>
-            </section>
+                <section class="user-management-section">
+                    <div class="user-info">
+                        <h3 id="username">کاربر</h3>
+                        <button id="logout-btn" class="btn btn-secondary">خروج</button>
+                    </div>
+                    <!-- Class filter dropdown -->
+                    <div class="form-group">
+                        <label for="class-filter">فیلتر بر اساس کلاس:</label>
+                        <select id="class-filter">
+                            <option value="all">همه کلاس‌ها</option>
+                            <!-- Classes will be dynamically loaded here -->
+                        </select>
+                    </div>
+                    <div class="users-list">
+                        <ul id="users-container">
+                            <li class="loading-users">در حال بارگذاری کاربران...</li>
+                        </ul>
+                    </div>
+                </section>
 
-            <section class="task-section">
-                <div class="toolbar">
-                    <button class="btn btn-primary" id="open-task-modal-btn"><i class="fas fa-plus"></i> افزودن تسک</button>
-                    <button class="btn btn-primary" id="generate-report-btn"><i class="fas fa-chart-line"></i> گزارش کار</button>
-                </div>
-                
-                <div class="tasks-container">
-                    <!-- Tasks will be dynamically inserted here -->
-                </div>
-            </section>
+                <section class="task-section">
+                    <div class="tasks-container">
+                        <!-- Tasks will be dynamically inserted here -->
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 
@@ -145,8 +147,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fa.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fa.js"></script>
+    <script src="js/auth-check.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
-

@@ -7,33 +7,40 @@
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="css/online-classes.css">
-    <link rel="stylesheet" href="css/subjects.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- --- *** جدید: کتابخانه صدا اضافه شد *** --- -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <div class="page-container">
-        <header class="page-header">
-            <h1>برنامه هفتگی کلاس‌ها</h1>
-            <div id="teacher-toolbar" style="display: none;">
-                <button id="add-session-btn" class="btn btn-primary"><i class="fas fa-plus"></i> تعریف کلاس جدید</button>
-            </div>
-            <a href="/home.html" class="back-to-dashboard-btn"><i class="fas fa-arrow-left"></i> بازگشت</a>
-        </header>
-
-        <main class="content-main">
-            <div id="calendar-view">
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <h2 id="calendar-title">این هفته</h2>
+    <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-label="منو">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="app-layout" class="app-layout">
+        <aside id="app-sidebar" class="sidebar-shell"></aside>
+        <main class="page-shell">
+            <div class="page-shell-inner">
+                <header class="page-header">
+                    <h1 class="page-title">برنامه هفتگی کلاس‌ها</h1>
+                    <div class="page-header-actions">
+                        <div id="teacher-toolbar" style="display: none;">
+                            <button id="add-session-btn" class="btn btn-primary"><i class="fas fa-plus"></i> تعریف کلاس جدید</button>
+                        </div>
                     </div>
-                    <div class="calendar-grid" id="calendar-days-header"></div>
-                    <div class="calendar-grid" id="calendar-body"></div>
-                </div>
+                </header>
+
+                <section class="panel">
+                    <div id="calendar-view">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <h2 id="calendar-title">این هفته</h2>
+                            </div>
+                            <div class="calendar-grid" id="calendar-days-header"></div>
+                            <div class="calendar-grid" id="calendar-body"></div>
+                        </div>
+                    </div>
+                    <p id="loading-message">در حال بارگذاری برنامه...</p>
+                </section>
             </div>
-            <p id="loading-message">در حال بارگذاری برنامه...</p>
         </main>
     </div>
 
@@ -98,7 +105,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <script src="js/auth-check.js"></script>
     <script src="js/online-classes.js"></script>
 </body>
 </html>
-

@@ -1,4 +1,5 @@
-/* Styles specific to the scores page */
+/* استایل‌های اختصاصی صفحه ثبت نمرات — تم تیره */
+
 .selection-area {
     display: flex;
     gap: 2rem;
@@ -11,42 +12,45 @@
     min-width: 250px;
 }
 
-/* استایل دهی به Choices در صفحه ثبت نمره */
+/* استایل‌دهی به Choices در صفحه ثبت نمره */
 .selection-area .choices {
     margin-top: 0.5rem;
 }
 
 .selection-area .choices__inner {
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background-color: #fff;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-strong);
+    background-color: rgba(15, 23, 42, 0.9);
+    color: var(--color-text);
     transition: border-color 0.2s;
 }
 
 .selection-area .choices__inner:focus-within {
-    border-color: var(--primary-color);
+    border-color: var(--color-primary);
 }
 
 #students-table input[type="number"] {
     width: 100px;
     padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--color-text);
     text-align: center;
     font-size: 1rem;
     direction: ltr;
 }
 
-/* Hide the number input arrows in Chrome, Safari, Edge, Opera */
+/* حذف فلش‌های ورودی عددی در Chrome, Safari, Edge, Opera */
 #students-table input::-webkit-outer-spin-button,
 #students-table input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-/* Hide the number input arrows in Firefox */
+/* حذف فلش‌های ورودی عددی در Firefox */
 #students-table input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .form-actions {
